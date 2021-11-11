@@ -164,3 +164,29 @@ const validateJobTitle = (jobTitle)=>{
         return "";
     }
 }
+
+
+
+
+=========================================================================
+1) Dear Students
+=======================
+Implement-Persistance-on-contact-form-data
+================================
+1)install json server
+command
+===============
+1)npm install --save json-server
+2)create one file withname contactdb.json in your project
+write in that file
+{
+"contacts": [
+	]
+}
+3) type command on terminal window
+npx json-server   --watch contactdb.json
+4) in index.html file under script tag
+write type attribute
+<script type = "module" src="./js/script.js"></script>
+5)in script.js file write this statment
+import{sendData} from './contact_service.js';
