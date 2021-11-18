@@ -1,0 +1,214 @@
+@Input()Decorators :Passing Information from parent to child
+
+Decorators : 
+Its like a function which is attaching metadata to a class, method, property, Parameters 
+
+@Output(): Passing information from child to parent .
+EventEmitter :  It is used along with @Output decorator to emit the values from child to parent component
+Event  : any action
+Emitter:Emit any values 
+
+
+@Component: 
+-selector
+-templates
+-Styles
+
+
+
+App component -- Parent element
+	Hero Component 
+
+1)app.component.ts ->   parentmsg:string ="I am parent component";
+2)app.compoenent.html-> <app-hero [childmsg]="parentmsg"></app-hero>
+3)hero.compoenent.ts ->  @Input() childmsg:string='';
+
+import { Component, Input, OnInit } from '@angular/core';
+
+4)hero.component.html-> Child msg : {{childmsg}}
+
+
+===============================
+1)hero.compoenent.ts ->  
+  @Output() myoutput:EventEmitter<string>=new EventEmitter();
+  outputmsg:string="I am child component";
+
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+2)hero.component.html->
+<button (click)="sendmsg()">Send Data</button>
+
+hero.compoenent.ts -> 
+sendmsg()
+{
+ this.myoutput.emit(this.outputmsg); 
+}
+
+3)app.component.html:->
+{{data1}}
+<app-hero [childmsg]="parentmsg" (myoutput)="Getchildmsg($event)"></app-hero>
+
+4)app.component.ts->
+data1:string='waiting..';
+Getchildmsg(data:any)
+  {
+   // console.log(data);
+this.data1=data;
+  }
+{{data1}}
+
+
+====================================
+Angular Directives :
+
+They are classes that are used to add some additional behaviour to Angular application.
+Manipulate the DOM.
+3 types of Directives :
+1)Structural Directive:
+	It basically deals with manipulating the DOM elements. *ngIf, *ngFor
+2)Attribute Directive:
+        It deals with changing the look and behaviour of the DOM element :
+	ngStyle , ngSwitch, ngModel, ngClass
+3)Component Directive:
+	Form your main class responsible for instantiate component and processing that isnused at run time.
+4)Custom Directive : 
+	We are creating our own directives based on app requirement .
+
+================================================================================
+.html->
+<p>directiveex works!</p>
+<ul *ngFor="let person of people">
+    <li *ngIf="person.age<30">
+Name:{{person.name}} 
+Country: {{person.country}}
+    </li>
+</ul>
+
+
+.ts ->
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-directiveex',
+  templateUrl: './directiveex.component.html',
+  styleUrls: ['./directiveex.component.css']
+})
+export class DirectiveexComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  people:any[]=[
+    {
+      "name":"Sam",
+      "age":30,
+      "country":"India"
+    },
+    {
+      "name":"John",
+      "age":25,
+      "country":"Pakistan"
+    },
+    {
+      "name":"Johny",
+      "age":20,
+      "country":"Pakistan"
+    },
+    {
+      "name":"Michael",
+      "age":40,
+      "country":"Nepal"
+    }
+   ];
+}
+
+===================================================
+.html->
+<p>directiveex works!</p>
+<ul *ngFor="let person of people">
+    <li *ngIf="person.age<30">
+Name:{{person.name}} 
+Country: {{person.country}}
+    </li>
+</ul>
+<h1>Ng switch example</h1>
+<ul *ngFor="let person of people" [ngSwitch]="person.country">
+    <li *ngSwitchCase=" 'India' " class="success">
+{{person.name}} {{person.country}}
+    </li>
+    <li *ngSwitchCase= " 'Pakistan' " class="danger">
+        {{person.name}} {{person.country}}
+            </li>
+    <li *ngSwitchCase= " 'Nepal' " class="warning">
+        
+                {{person.name}} {{person.country}}
+                    </li>
+    <li *ngSwitchDefault class="default">
+        {{person.name}} {{person.country}}
+    </li>
+</ul>
+
+======================================================
+Attribute Binding :
+
+<p>atrdir works!</p>
+<ul *ngFor="let item of items">
+    <li [ngStyle]="{'backgroundColor':getcolor(item.type)}">
+        {{item.name}}
+    </li>
+</ul>
+
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-atrdir',
+  templateUrl: './atrdir.component.html',
+  styleUrls: ['./atrdir.component.css']
+})
+export class AtrdirComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+items=[
+  {name:"APPLE",type:"fruit"},
+  {name:"BANANA",type:"fruit"},
+  {name:"CARROT",type:"vegetable"},
+
+];
+getcolor(type:any)
+{
+if(type=='fruit')
+{
+  return 'red';
+}
+else 
+{
+  return 'yellow';
+}
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
