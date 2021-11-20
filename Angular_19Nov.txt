@@ -1,0 +1,119 @@
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+
+@Directive({
+  selector: '[appCheck]'
+})
+export class CheckDirective {
+
+  constructor(private templateref:TemplateRef<any>,
+    private viewcontainer:ViewContainerRef) { }
+
+    @Input() set appCheck(data:boolean)
+    {
+      this.viewcontainer.clear();
+    
+    if(data)
+    {
+      console.log(data);
+      //insert the template into container
+      this.viewcontainer.createEmbeddedView(this.templateref);
+
+    }
+}
+}
+
+=========================
+<div *appCheck=true>
+    <h1>this is check directive</h1>
+</div>
+
+==================
+
+import { Directive, HostBinding, HostListener, Input } from '@angular/core';
+
+@Directive({
+  selector: '[appFocus]'
+})
+export class FocusDirective {
+
+  constructor() { }
+ @Input('appFocus') color:string='';
+
+ @HostBinding('style.backgroundColor')
+ bgColor:string='';
+
+ @HostListener('focus') onFocus()
+ {
+   this.bgColor=this.color;
+ }
+ @HostListener('blur') onBlur()
+ {
+   this.bgColor="";
+ }
+ 
+
+
+}
+
+<input appFocus="green" type="text"/>
+===============================
+import { Directive, Input } from '@angular/core';
+import { HostListener, HostBinding } from '@angular/core';
+@Directive({
+  selector: '[appFocus]'
+})
+// using HostBinding for changing style properties
+export class FocusDirective {
+
+  @Input('appFocus') color: string='';
+  @HostBinding('style.backgroundColor') 
+    bgColor: string = '';
+
+  @HostListener('focus') onFocus(){
+    this.bgColor = this.color;
+  }
+
+  
+  @HostListener('blur') onBlur(){
+    this.bgColor = "";
+  }
+}
+
+// using ElementRef for changing style properties
+// export class FocusDirective {
+
+//   @Input('appFocus') color: string='';
+  
+
+//   constructor(private elementRef : ElementRef) { }
+
+//   @HostListener('focus') onFocus(){
+//     this.elementRef.nativeElement.style.backgroundColor = this.color;
+//   }
+
+  
+//   @HostListener('blur') onBlur(){
+//     this.elementRef.nativeElement.style.backgroundColor = null;
+//   }
+// }
+
+// using Renderer2 for changing style properties
+// export class FocusDirective {
+
+//   @Input('appFocus') color: string='';
+  
+
+//   constructor(private elementRef : ElementRef, private renderer : Renderer2) { }
+
+//   @HostListener('focus') onFocus(){
+//     this.renderer.setStyle(this.elementRef.nativeElement,'background-color',this.color);
+    
+//   }
+
+  
+//   @HostListener('blur') onBlur(){
+//     this.renderer.setStyle(this.elementRef.nativeElement,'background-color', null);
+//   }
+// }
+
+
