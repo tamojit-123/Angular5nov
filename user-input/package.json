@@ -1,0 +1,15 @@
+{
+  "name": "user-input",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx json-server --watch data.json"
+  },
+  "author": "tamojit",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>callback</title>
+</head>
+<body>
+<script>
+    const message = function () {
+        console.log("message after 5 seconds");
+    }
+
+    const messageOne = function () {
+        console.log("messageOne after 10 seconds");
+    }
+
+    setTimeout(message, 5000);
+
+    setTimeout(messageOne, 10000);
+
+    setTimeout(function () {
+        console.log("message after 1 second");
+    }, 1000);
+
+    setTimeout(() => {
+        console.log("message after 7 seconds")
+    }, 7000);
+</script>
+</body>
+</html>

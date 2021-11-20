@@ -1,0 +1,10 @@
+<script>  // var keyword // let keyword function run() {  const firstname="Sam";  const lastname="michael";  const fullnam=firstname+" " +lastname;   console.log(fullnam)  let a;  console.log(a); var b; console.log(b);  const pi=3.14;  pi=4.5;  console.log(pi);   let foo = "Foo";   console.log(foo); // Foo   {     let moo = "Mooo"     console.log(moo); // Mooo   }   console.log(moo); // ReferenceError } run();    </script>
+
+
+
+1)Install Json server
+2)Cretae 1 Json file db.json
+3)Design 1 HTML Page - submit button
+4)Write code in JS file
+5)Execute json-server --watch db.json
+6)Execute HTMl Page on server
