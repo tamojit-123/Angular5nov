@@ -1,0 +1,103 @@
+User Interface-Front End Module :
+
+HTML/CSS/JS/Angular
+
+
+HTML :
+1)Basic HTML tags-<h1>..</h6>, <a>,<img>, <ul>,<ol>, <emphasis>, <pre>,<span>,<div>,<p>,<br/>,<hr/>
+2)Semantic Elements : <navbar>, <header>,<footer>,<article>,<section>,<figure>
+3)CSS : Enhancing the HTMl elements by giving some styles.
+	Inline style sheet: Styling to a particular HTMl element 
+	Embedded/Internal style sheet: Style to a web page using <head>
+	External/CSS sheet: We are defining styles to a separate CSS file and we link to HTMl page by
+	<link> tag.
+style.css
+h1
+{
+color:red;
+}
+In html, <h1 style="color:blue">Heading1 </h1>
+
+4)CSS Positioning : absolute, relative, fixed
+5)CSS Display : block, inline-block
+6)CSS Flex 
+5)Responsive web pages :Media queries
+6)Bootstrap : Framework having lot of templates /css classes /Predefined styles 
+
+
+Javascript :
+-Its a client side scripting language 
+-Validations 
+-To provide logic to the web pages 
+
+Why Node?
+-Its a runtime environment to execute JS on server side.
+
+-Basic JS 
+-JS arrays/objects
+-DOM : what is DOM?
+	getElementById
+	getElementsByName
+	querySelector
+	
+-JS events 
+-Asynchronous Programming 
+-XMLHTTPRequest-GET, POST
+-Callbacks: Definition->settimeout,setInterval
+-Promise :Definition, simple example
+
+===========================================
+Angular :
+1)what is typescript?
+2)Typescript compilation ?
+3)OOps concepts 
+4)tsconfig.json 
+
+1)What is Angular?
+2)why Angular?
+3)Latest version of ANgular in IT?
+4)Angular Components- Property Binding{{}}, Attribute Binding[],2-way binding-[()], Event binding()
+5)Angular Directives: *ngFor, *ngIf- Manipulating/Enhancing  the HTML element
+6)Angular Services:class contains logic to be reused in multiple components: HTTPClient, Router
+- How to Inject services in component - constructor Injection
+- authentication, authorization, logger , GET-POST 
+7)Angular Routing- Guard in routing-Navigation to diff views 
+8)Angular Material- It is a UI library 
+9)Decorators-
+@Input- Sharing information from parent to child
+@Output- sharing information from child to parent . It is used with Eventemitter
+10)Rxjs/Observables : 
+For asynchronous programming in ANgular we can use Observables 
+It works on the model fo Producer(Observable)-Consumer(Observer)
+-Customer has to subscribe first to receive value from observable
+-It works on concept of lazy push 
+-next(), error(), complete()
+
+RxJs contains operators which are observable in nature 
+
+
+Sample code snippet - 
+
+export class AppComponent
+{
+//code snippet 
+}
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
