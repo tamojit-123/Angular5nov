@@ -1,0 +1,17 @@
+<h2>student works!</h2>
+<div>
+  <label for="id">Student Id: </label>
+  <input type="number" id="id" [(ngModel)]="newStudent.studentId" placeholder=" Student id">
+</div>
+<br>
+<div>
+  <label for="name">Student Name: </label>
+  <input type="text" id="name" [(ngModel)]="newStudent.studentName" placeholder=" Student name">
+</div>
+<button (click)="save()">Save</button>
+
+<div>
+  <h3>{{newStudent.studentName}}</h3>
+  <p>happy learning !!</p>
+</div>
+

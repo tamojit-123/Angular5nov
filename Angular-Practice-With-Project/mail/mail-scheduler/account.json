@@ -1,0 +1,44 @@
+{
+  "account": [
+    {
+      "email": "tamo@gmail.com",
+      "password": "password",
+      "id": 1
+    }
+  ],
+  "mailAccount": [
+    {
+      "userId": 1,
+      "accName": "Tamojit ",
+      "email": "tamo@gmail.com",
+      "password": "password",
+      "inServer": "https",
+      "inServerP": 2000,
+      "outServer": "ftp",
+      "outServerP": 3030,
+      "id": 1
+    }
+  ],
+  "emails": [
+    {
+      "userId": 1,
+      "to": "rector@gmail.com",
+      "cc": "tom@gmail.com",
+      "bcc": "jerry@gmail.com",
+      "subject": "my scheduled email",
+      "body": "HI there this is my schedule email, Just ignore, BYe",
+      "date": "2021-12-05T23:56",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "to": "hello@gmail.com",
+      "cc": "hi@gemail.com",
+      "bcc": "world@gmail.com",
+      "subject": "Hi hello world!",
+      "body": "Hi hello world!",
+      "date": "2021-12-05T23:56",
+      "id": 2
+    }
+  ]
+}

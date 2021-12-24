@@ -1,0 +1,82 @@
+<mat-toolbar color="primary">
+  <mat-icon aria-hidden="false" aria-label="Example email icon">email</mat-icon>
+  <span>&nbsp;mail-scheduler</span>
+  <button style="margin-left:85%;" mat-button (click)="logout()">
+    <mat-icon aria-hidden="false" aria-label="Example email icon">logout</mat-icon>&nbsp;Logout
+  </button>
+</mat-toolbar>
+<div style="display: flex;height: 800px;">
+  <div style="width:15%;">
+    <button class="black" mat-button (click)="openDialog()">+ Add Account</button>
+    <br>
+    <h1>Accounts</h1>
+    <div *ngFor="let account of userAccounts">
+      <button class="black" mat-button>
+        <mat-icon aria-hidden="false" aria-label="Example verified icon" class="green-icon">verified_user</mat-icon>
+        {{account.accName}}<br>
+
+        {{account.email}}</button>
+    </div>
+  </div>
+  <div style="width:40%;" class="black">
+    <h1>Scheduled Email </h1>
+    <div *ngFor="let email of accountEmails">
+      <mat-card>
+        <div style="width:75%" class="black"><b>To:</b> {{email.to}}<br><b>Subject:</b> {{email.subject}}</div>
+        <div style="width:25%" class="black"><b>Date:</b> {{email.date}}</div>
+      </mat-card>
+      <br>
+    </div>
+
+  </div>
+  <mat-card>
+    <div style="">
+      <form #emailForm="ngForm" (ngSubmit)="submit(emailForm)">
+        <input matInput readonly name="userId" #userId="ngModel" ngModel [(ngModel)]="uid">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>To</mat-label>
+          <input matInput name="to" #to="ngModel" ngModel required>
+          <small class="error" *ngIf="to.invalid && to.touched">Field is required</small>
+          <br>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>CC</mat-label>
+          <input matInput name="cc" #cc="ngModel" ngModel>
+          <small class="error" *ngIf="cc.invalid && cc.touched">Field is required</small>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>BCC</mat-label>
+          <input matInput name="bcc" #bcc="ngModel" ngModel>
+          <small class="error" *ngIf="bcc.invalid && bcc.touched">Field is required</small>
+          <br>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Subject</mat-label>
+          <input matInput name="subject" #subject="ngModel" ngModel required>
+          <small class="error" *ngIf="subject.invalid && subject.touched">Field is required</small>
+          <br>
+        </mat-form-field>
+        <mat-form-field class="example-body" appearance="fill">
+          <mat-label>Body</mat-label>
+          <input matInput name="body" #body="ngModel" ngModel required>
+          <small class="error" *ngIf="body.invalid && body.touched">Field is required</small>
+          <br>
+        </mat-form-field>
+        <mat-form-field class="example-body" appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput name="date" #date="ngModel" ngModel required type="datetime-local">
+          <small class="error" *ngIf="date.invalid && date.touched">Field is required</small>
+          <br>
+        </mat-form-field>
+
+
+        <div mat-dialog-actions>
+          <button mat-raised-button color="primary" type="submit">Schedule Email</button>&nbsp;
+          <button mat-raised-button color="primary">Discard Changes</button>
+        </div>
+      </form>
+
+    </div>
+  </mat-card>
+</div>

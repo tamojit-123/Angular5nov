@@ -1,0 +1,14 @@
+{
+  "student": [
+    {
+      "id": 1,
+      "name": "sam",
+      "stream": "cse"
+    },
+    {
+      "name": "fgdg",
+      "stream": "dfggd",
+      "id": 2
+    }
+  ]
+}

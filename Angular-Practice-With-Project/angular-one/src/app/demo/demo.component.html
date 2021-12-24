@@ -1,0 +1,22 @@
+<p id="demo"></p>
+<input type="button" (click)="show()" value="demo button">
+
+<br>
+<hr>
+
+Name: <input type="text" [(ngModel)]="name" placeholder="name">
+<br>
+Password: <input type="password" [(ngModel)]="password" placeholder="password">
+<br>
+<button (click)="validation()">Validate</button>
+
+<div>
+  <ul>
+    <li style="color: red;">
+      {{nameValidationOutput}}
+    </li>
+    <li style="color: red;">
+      {{passwordValidationOutput}}
+    </li>
+  </ul>
+</div>

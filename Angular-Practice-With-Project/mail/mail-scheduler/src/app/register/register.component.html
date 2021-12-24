@@ -1,0 +1,37 @@
+<div class="register-div">
+  <h1>Register</h1>
+  <br>
+  <h3>Enter Your email</h3>
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" [(ngModel)]="user.email" #email="ngModel" required>
+      <mat-error *ngIf="email.invalid && email.touched">Email is required</mat-error>
+    </mat-form-field>
+  </div>
+  <br>
+  <h3>Enter Your password</h3>
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter Password</mat-label>
+      <input matInput placeholder="password" type="password" [(ngModel)]="user.password" #pass1="ngModel" required>
+      <mat-error *ngIf="pass1.invalid && pass1.touched">Enter password</mat-error>
+    </mat-form-field>
+  </div>
+  <br>
+  <h3>Confirm password</h3>
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput placeholder="password" type="password" [(ngModel)]="password2" #pass2="ngModel" required>
+      <mat-error *ngIf="pass2.invalid && pass2.touched">Re-enter password</mat-error>
+      <br>
+      <mat-error *ngIf="pass1.value!=pass2.value" class="error">Password does not match</mat-error>
+    </mat-form-field>
+  </div>
+  <br>
+  <a href="/home/login">
+    <button mat-raised-button color="primary"><mat-icon aria-hidden="false" aria-label="Example email icon">fingerprint</mat-icon>&nbsp;Login</button>
+  </a>
+  <button mat-raised-button color="primary" [disabled]="pass1.value!=pass2.value" (click)="register()"><mat-icon aria-hidden="false" aria-label="Example email icon">how_to_reg</mat-icon>&nbsp;Register</button>
+</div>

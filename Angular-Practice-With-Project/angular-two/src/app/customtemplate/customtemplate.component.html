@@ -1,0 +1,11 @@
+<p>customtemplate works!</p>
+Name:
+<input type="text" name="firstname" required #firstname="ngModel" ngModel appName>
+<div *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
+  <div *ngIf="firstname.errors.required">
+    first name can't be empty
+  </div>
+  <div *ngIf="firstname.errors.name">
+    Only "NIIT" name is allowed
+  </div>
+</div>

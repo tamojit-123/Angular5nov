@@ -1,0 +1,40 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.form-div {
+  padding: 30px;
+}
+
+.width {
+  width: 500px;
+  max-height: 500px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+a {
+  color: white;
+}
+
+.card-div {
+  width: 40%;
+  margin-left: 800px;
+  margin-top: -1250px;
+}

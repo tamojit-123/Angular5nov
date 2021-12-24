@@ -1,0 +1,192 @@
+//Provide the solution code here
+let contacts = [];
+// listen to click of addContact button and add maximum of two additional inputs for inputting Contact Nos.
+window.submitcontact = () => {
+    //contact object captures all the inputs provided
+    let formdata = document.getElementById('contactform')
+    let contact = Object.fromEntries(new FormData(formdata))
+    console.log(contact);
+    let result = submitData(contact);
+    return result;
+}
+//errors object captures all the validation errors
+const submitData = (contact) => {
+    let errors={
+        firstNameError: validateFirstName(contact.firstname),
+        lastNameError: validateLastName(contact.lastname),
+        emailError: validateEmail(contact.email),
+        homeNoError: validateHomeNo(contact.homeNo),
+        workNoError: validateWorkNo(contact.workNo),
+        birthdateError:validateBirthdate(contact.birthdate),
+        companyError:validateCompany(contact.company),
+        jobTitleError:validateJobTitle(contact.jobTitle),
+        notesError: validateNotes(contact.notes)
+    }  
+    //display validation summary with error messages
+    let errorMessages = Object.values(errors).filter(e => e !== '');
+    //if no errors, push the contact to contacts array
+    if(errorMessages.length === 0){
+        contacts.push(contact);
+        return true;
+    }
+    else{
+        displayValidationSummary(errorMessages);
+        displayIndividualErrorMessages(errors);
+        return false;
+    }
+}
+//contacts can be logged on to console, or can even be updated on UI
+//function to display validation summary with error messages provided
+function displayValidationSummary(errorMessages){
+    let list = '';
+    errorMessages.map(e=>`<li>${e}</li>`).forEach(item=>{
+        list += item;
+    });
+ document.getElementsByTagName('ul')[0].innerHTML = list;
+}
+//function to display error messages alongside the input fields
+function displayIndividualErrorMessages(errorMessages){
+    document.getElementById('firstNameError').innerText = errorMessages.firstNameError;
+    document.getElementById('lastNameError').innerText = errorMessages.lastNameError;
+    document.getElementById('emailError').innerText = errorMessages.emailError;
+    document.getElementById('homeNoError').innerText = errorMessages.homeNoError;
+    document.getElementById('workNoError').innerText = errorMessages.workNoError;
+    document.getElementById('birthdateError').innerText = errorMessages.birthdateError;
+    document.getElementById('companyError').innerText = errorMessages.companyError;
+    document.getElementById('jobTitleError').innerText = errorMessages.jobTitleError;
+    document.getElementById('notesError').innerText = errorMessages.notesError;
+}
+//function to validate firstName
+const validateFirstName = (firstname)=>{
+    var letters = /^[A-Za-z]+$/;
+    if(firstname === '' || firstname === undefined || firstname === null)
+        return "firstname cannot be left blank";
+    else if(!(firstname.match(letters))){
+        return "Please enter valid name";
+    }
+    else{
+        return "";
+    }
+}
+//function to validate lastName
+const validateLastName = (lastname)=>{
+    var letters = /^[A-Za-z]+$/;
+    if(lastname === '' || lastname === undefined || lastname === null)
+        return "lastname cannot be left blank";
+    else if(!(lastname.match(letters))){
+        return "Please enter valid lastname";
+    }
+    else
+        return "";
+}
+//function to validate email
+const validateEmail = (email) => {
+    let emailError = '';
+    let validRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$";
+    if (email === '' || email === undefined || email === null)
+        emailError += "Email cannot be left blank";
+    else if (!email.match(validRegex))
+        emailError += 'Invalid Email';
+    return emailError;
+}
+//function to validate home no
+const validateHomeNo = (homeno) => {
+    let homeNoError = '';
+    //to validate following patterns of contact nos
+    //0999999999, 099-999-999, (099)-999-9999, (099)9999999, 099 999 9999, 099 999-9999, (099) 999-9999, 099.999.9999
+    let validRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if (homeno === '' || homeno === undefined || homeno === null)
+        homeNoError += "ContactNo cannot be left blank";
+    else if (!homeno.match(validRegex))
+        homeNoError += 'Invalid ContactNo';
+    return homeNoError;
+}
+//function to validate work no
+const validateWorkNo = (workno) => {
+    let workNoError = '';
+    //to validate following patterns of contact nos
+    //0999999999, 099-999-999, (099)-999-9999, (099)9999999, 099 999 9999, 099 999-9999, (099) 999-9999, 099.999.9999
+    let validRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if (workno === '' || workno === undefined || workno === null)
+       workNoError += "ContactNo cannot be left blank";
+    else if (!workno.match(validRegex))
+        workNoError += 'Invalid ContactNo';
+    return workNoError;
+}
+//function to validate additional contact no
+//function to validate additional contact no
+//function to validate notes
+const validateNotes = (notes)=>{
+    if(notes === '' || notes === undefined || notes === null)
+        return "Notes cannot be left blank";
+    else
+        return "";
+}
+//disable all dates for whom age is less than 18
+const validateBirthdate = (birthdate)=>{
+    var split = birthdate.split("-");
+    let year = parseInt(split[0]);
+    let month = parseInt(split[1]);
+    let day = parseInt(split[2]);
+    const presentDate = new Date();
+    console.log("day:"+day);
+    console.log("month:"+month);
+    console.log("year:"+year);
+    console.log("present year"+presentDate.getFullYear());
+    if((presentDate.getFullYear()-year)>18){
+        return "valid age"
+    }
+    else{
+        return "Invalid.Your age is less than 18"
+    }
+}
+//Validate Company
+const validateCompany = (company)=>{
+    var letters = /^[A-Za-z]+$/;
+    if(company === '' || company === undefined || company === null)
+        return "CompanyName cannot be left blank";
+    else if(!(company.match(letters))){
+        return "Please enter valid Companyname";
+    }
+    else{
+        return "";
+    }
+}
+//Validate Job Title
+const validateJobTitle = (jobTitle)=>{
+    var letters = /^[A-Za-z]+$/;
+    if(jobTitle === '' || jobTitle === undefined || jobTitle === null)
+        return "jobTitle cannot be left blank";
+    else if(!(jobTitle.match(letters))){
+        return "Please enter valid jobTitle";
+    }
+    else{
+        return "";
+    }
+}
+
+
+
+
+=========================================================================
+1) Dear Students
+=======================
+Implement-Persistance-on-contact-form-data
+================================
+1)install json server
+command
+===============
+1)npm install --save json-server
+2)create one file withname contactdb.json in your project
+write in that file
+{
+"contacts": [
+	]
+}
+3) type command on terminal window
+npx json-server   --watch contactdb.json
+4) in index.html file under script tag
+write type attribute
+<script type = "module" src="./js/script.js"></script>
+5)in script.js file write this statment
+import{sendData} from './contact_service.js';

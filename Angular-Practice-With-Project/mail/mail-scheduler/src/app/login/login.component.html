@@ -1,0 +1,24 @@
+<div class="register-div">
+  <h1>Login</h1>
+  <br>
+  <h3>Enter Your username</h3>
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your username</mat-label>
+      <input matInput placeholder="pat@example.com" [(ngModel)]="username">
+    </mat-form-field>
+  </div>
+  <br>
+  <h3>Enter Your password</h3>
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter Password</mat-label>
+      <input matInput placeholder="password" type="password" [(ngModel)]="password">
+    </mat-form-field>
+  </div>
+  <br>
+  <button mat-raised-button color="primary" (click)="login()"><mat-icon aria-hidden="false" aria-label="Example email icon">fingerprint</mat-icon>&nbsp;Login</button>
+  <a href="/home/register">
+    <button mat-raised-button color="primary"><mat-icon aria-hidden="false" aria-label="Example email icon">how_to_reg</mat-icon>&nbsp;Register</button>
+  </a>
+</div>
