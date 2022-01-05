@@ -1,0 +1,38 @@
+what is angular?
+1)SPA 
+2)Framework
+3)JS Framework
+4)Speeds up the deployment 
+5)It is written in TypeScript 
+
+Typescript :Superset of JS -- JS +oops 
+-Convert into JS only after compilation
+-tsc filename.ts
+
+
+-Angular is JS Framework which is used for building SPA Applications using TypeScipt+HTML/CSS
+-Angular is Dynamic 
+
+-developer - google
+
+-initial release or first version in Angularjs 1.0
+
+-Angular release 2.0, 14-sep-2016
+-current version v13 written in .ts
+
+-angular framework is a type of web framework for web platform
+
+-angular cli- it is a official tool for initilizing and working with angular projects
+
+like most of the modern frontend tools these days, angular cli is build on top of node js which we use to generate project or serve it.
+
+what is node js?
+
+- the node js is a server technology that allows to run js on the server and build server side web application. 
+Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine 
+and executes JavaScript code outside a web browser.
+
+
+
+ 
+
