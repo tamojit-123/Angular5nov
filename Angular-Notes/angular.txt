@@ -10,7 +10,7 @@ Typescript :Superset of JS -- JS +oops
 -tsc filename.ts
 
 
--Angular is JS Framework which is used for building SPA Applications using TypeScipt+HTML/CSS
+-Angular is JS Framework which is used for building saclable and SPA web Applications using TypeScipt+HTML/CSS
 -Angular is Dynamic 
 
 -developer - google
@@ -31,6 +31,46 @@ what is node js?
 - the node js is a server technology that allows to run js on the server and build server side web application. 
 Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine 
 and executes JavaScript code outside a web browser.
+
+what is html, css, and live server?
+what is semantic and on semantic tags?
+difference b/w html and html 5.
+canvas, geolocation, video and audio are in html 5.
+
+High-level Differences between Template-driven and Reactive Forms
+Below are some of the high-level differences between the two types:
+
+Template-driven forms make use of the "FormsModule", while reactive forms are based on "ReactiveFormsModule".
+Template-driven forms are asynchronous in nature, whereas Reactive forms are mostly synchronous.
+In a template-driven approach, most of the logic is driven from the template, whereas in reactive-driven approach, 
+the logic resides mainly in the component or typescript code. Let us get started by generating a 
+component and then we'll update our form code.
+
+Template Driven Forms are based only on template directives, while Reactive forms are defined programmatically 
+at the level of the component class
+
+Reactive Forms are a better default choice for new applications, as they are more powerful and easier to use.
+
+The Template Driven approach is very familiar to AngularJs developers and is ideal for easy migration 
+of AngularJs applications into Angular.
+
+The Reactive approach removes validation logic from the template, keeping the templates cleaner.
+
+Reactive forms are easier to use in general and support better more advanced use cases via its Observable-based API.
+
+It's not an exclusive choice but for a matter of consistency, it's better to choose one of the two approaches and use it everywhere in our application, preferably Reactive forms
+
+Observables provide support for data sharing between publishers and subscribers in an angular application. 
+It is referred to as a better technique for event handling, asynchronous programming, and handling multiple 
+values as compared to techniques like promises.
+A special feature of Observables is that it can only be accessed by a consumer who subscribes to it i.e 
+A function for publishing values is defined, but it is not executed by the subscribed 
+consumer (it can be any component) only via which the customer can receive notifications till the function 
+runs or till they subscribed.
+An observable can deliver multiple values of any type. The API for receiving values is the same in any 
+condition and the setup and the logic are both handled by the observable. Rest thing is only about 
+subscribing and unsubscribing the information required.
+
 
 
 
