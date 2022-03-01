@@ -1,0 +1,60 @@
+<form #uploadForm="ngForm" (ngSubmit)="submit(uploadForm)">
+  <input matInput readonly name="userId" #userId="ngModel" ngModel [(ngModel)]="userID">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Account Name</mat-label>
+    <input matInput name="accName" #accName="ngModel" ngModel required>
+    <small class="error" *ngIf="accName.invalid && accName.touched">Field is required</small>
+    <br>
+  </mat-form-field>
+  <h3>Credentials</h3>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput name="email" #email="ngModel" ngModel required>
+    <small class="error" *ngIf="email.invalid && email.touched">Field is required</small>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput name="password" #password="ngModel" ngModel required>
+    <small class="error" *ngIf="password.invalid && password.touched">Field is required</small>
+    <br>
+  </mat-form-field>
+
+
+  <h3>Incoming Server Details</h3>
+  <div class="half">
+    <mat-form-field class="example-half-width" appearance="fill">
+      <mat-label>Incoming Server</mat-label>
+      <input matInput name="inServer" #inServer="ngModel" ngModel required>
+      <small class="error" *ngIf="inServer.invalid && inServer.touched">Field is required</small>
+    </mat-form-field>
+    <br>&nbsp;&nbsp;
+    <mat-form-field class="example-half-width" appearance="fill">
+      <mat-label>Incoming Server Port</mat-label>
+      <input matInput name="inServerP" #inServerP="ngModel" type="number" ngModel required>
+      <small class="error" *ngIf="inServerP.invalid && inServerP.touched">Field is required</small>
+    </mat-form-field>
+  </div>
+  <br>
+  <h3>Outgoing Server Details</h3>
+  <div class="half">
+    <mat-form-field class="example-half-width" appearance="fill">
+      <mat-label>Outgoing Server</mat-label>
+      <input matInput name="outServer" #outServer="ngModel" ngModel required>
+      <small class="error" *ngIf="outServer.invalid && outServer.touched">Field is required</small>
+    </mat-form-field>
+    <br>&nbsp;&nbsp;
+    <mat-form-field class="example-half-width" appearance="fill">
+      <mat-label>Outgoing Server Port</mat-label>
+      <input matInput name="outServerP" #outServerP="ngModel" type="number" ngModel required>
+      <small class="error" *ngIf="outServerP.invalid && outServerP.touched">Field is required</small>
+      <br>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" type="submit">Save</button>&nbsp;
+    <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+  </div>
+</form>

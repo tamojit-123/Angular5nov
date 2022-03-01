@@ -1,0 +1,48 @@
+<p>templateforms works!</p>
+
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+    <p>
+      <label>First Name</label>
+      <input type="text" name="firstname" #firstname="ngModel" minlength="3" ngModel required>
+    </p>
+  <div *ngIf="!firstname.valid && (firstname.dirty || firstname.touched)" style="color: red">
+    <div *ngIf="firstname.errors.required">
+    </div>
+    <div *ngIf="firstname.errors.minlength"> First name can not be less than 3 characters</div>
+  </div>
+  <p>
+    <label>last name</label>
+    <input type="text" name="lastname" ngModel required>
+  </p>
+
+  <p>
+    <label>email</label>
+    <input type="email" name="email" ngModel required>
+  </p>
+
+  <p>
+    <label>gender</label>
+    <input type="radio" name="gender" value="Male" ngModel required>Male
+    <input type="radio" name="gender" value="Female" ngModel required>Female
+  </p>
+
+  <p>
+    <label>Married</label>
+    <input type="checkbox" name="isMarried" ngModel>
+  </p>
+  <select name="country" ngModel>
+    <option *ngFor="let cnt of countryList">
+      {{cnt.name}}
+    </option>
+  </select>
+  <p>
+    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+  </p>
+
+  <p>
+    Value: {{contactForm.value | json}}<br>
+    Valid: {{contactForm.valid}}<br>
+    Touched: {{contactForm.touched}}<br>
+    Submitted: {{contactForm.submitted}}<br>
+  </p>
+</form>

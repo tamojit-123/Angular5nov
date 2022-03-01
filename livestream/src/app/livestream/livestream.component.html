@@ -1,0 +1,55 @@
+<form [formGroup]="liveStream" (ngSubmit)="onSubmit(liveStream)">
+  <div class="form-div">
+    <h2>Live Stream Editor</h2>
+    <mat-form-field class="text-area" appearance="fill">
+      <mat-label>Add Title</mat-label>
+      <input matInput placeholder="Add Title" value="" formControlName="title">
+      <!--                 id="title" formControlName="title">-->
+    </mat-form-field>
+
+    <br>
+
+    <div class="date-time">
+      <mat-form-field class="date-time-gap" appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="StartDate">
+        <div *ngIf="liveStream.get('StartDate').invalid && liveStream.get('StartDate').touched" style="color: red">
+            start date cannot be less than current date
+        </div>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="date-time-gap" appearance="fill">
+        <mat-label>From Time</mat-label>
+        <input matInput type="time" placeholder="Add Title" value="" formControlName="time">
+      </mat-form-field>
+
+      <mat-form-field class="date-time-gap" appearance="fill">
+        <mat-label>To Time</mat-label>
+        <input matInput type="time" placeholder="Add Title" value="" formControlName="time">
+      </mat-form-field>
+
+      <mat-form-field class="date-time-gap" appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="EndDate">
+<!--        <div *ngIf="liveStream.get('EndDate').invalid && liveStream.get('EndDate').touched" style="color: red">-->
+<!--          end date cannot be less than start date-->
+<!--        </div>-->
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="text-area">
+      <h2>Event Details</h2>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Add Event Details</mat-label>
+        <textarea matInput placeholder="Add Event Details" formControlName="text"></textarea>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button>Submit</button>
+  </div>
+</form>
+

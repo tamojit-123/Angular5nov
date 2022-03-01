@@ -1,0 +1,15 @@
+<p>reactiveforms works!</p>
+
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit(courseForm)">
+  course Name: <input type="text" id="CourseName" formControlName="CourseName">
+  <div *ngIf="courseForm.get('CourseName').invalid && courseForm.get('CourseName').touched" style="color: red">
+    course name is required
+  </div>
+  course Description: <input type="text" id="courseDes" formControlName="courseDes">
+  course amount: <input type="text" id="courseAmt" formControlName="courseAmt">
+  course url: <input type="text" id="courseUrl" formControlName="courseUrl">
+  <div *ngIf="courseForm.get('courseUrl').invalid && courseForm.get('courseUrl').touched" style="color: red">
+    please enter valid url
+  </div>
+  <button type="submit" [disabled]="courseForm.invalid">Submit</button>
+</form>

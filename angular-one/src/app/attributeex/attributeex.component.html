@@ -1,0 +1,7 @@
+<p>attributeex works!</p>
+
+<ul *ngFor="let item of items">
+  <li [ngStyle]="{'backgroundColor':getcolor(item.type)}">
+    {{item.name}}
+  </li>
+</ul>

@@ -1,0 +1,22 @@
+<p>order works!</p>
+<table>
+  <thead>
+  <tr>
+    <th>Order Id</th>
+    <th>customer Id</th>
+    <th>Product Id</th>
+    <th>quantity</th>
+    <th>Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of orders">
+    <td>{{order.orderId}}</td>
+    <td>{{order.customerID}}</td>
+    <td>{{order.productID}}</td>
+    <td>{{order.quantity}}</td>
+    <td>{{order.orderDate}}</td>
+  </tr>
+  </tbody>
+</table>
+<a routerLink="">Back</a>

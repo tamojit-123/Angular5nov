@@ -1,0 +1,22 @@
+<p>directiveex works!</p>
+<ul *ngFor="let person of people">
+  <li *ngIf="person.age<30">
+    Name:{{person.name}}
+    Country: {{person.country}}
+  </li>
+</ul>
+<h1>Ng switch example</h1>
+<ul *ngFor="let person of people" [ngSwitch]="person.country">
+  <li *ngSwitchCase=" 'India' " class="success">
+    {{person.name}} {{person.country}}
+  </li>
+  <li *ngSwitchCase=" 'USA' " class="danger">
+    {{person.name}} {{person.country}}
+  </li>
+  <li *ngSwitchCase=" 'Germany' " class="warning">
+    {{person.name}} {{person.country}}
+  </li>
+  <li *ngSwitchDefault class="default">
+    {{person.name}} {{person.country}}
+  </li>
+</ul>

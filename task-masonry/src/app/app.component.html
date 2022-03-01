@@ -1,0 +1,10 @@
+<header>
+  <h1>KeepNote App</h1>
+</header>
+<div class="card" *ngFor="let not of notes" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{not.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted"></h6>
+    <p class="card-text">{{not.content}}</p>
+  </div>
+</div>
